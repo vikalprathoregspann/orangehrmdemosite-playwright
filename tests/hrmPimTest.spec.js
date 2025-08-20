@@ -50,7 +50,7 @@ test.describe("Single and Multiple delete",async()=>{
   test("Multiple delete",async({pimLaunch})=>
 {
     await pimLaunch.checkFirstDelete()
-    await pimLaunch.checkFirstDelete()
+    await pimLaunch.checkSecondDelete()
 })
 test.afterEach("Actual deletion",async({pimLaunch})=>
 {
