@@ -18,13 +18,12 @@ export const test = base.extend({
     await hrmLoginPage.launchTheApp()
     await use()
   },
-  pimLaunch:async({hrmLoginSetUp,page},use)=>{
-    await page.getByRole('link', { name: 'PIM' }).click()
-    await use(new PimPage(page))},
-    
   HrmDashboardPage: async({page},use)=>{
     await use(new HrmDashboardPage(page));
-  }
+  },
+  pimLaunch:async({hrmLoginSetUp,page},use)=>{
+    await page.getByRole('link', { name: 'PIM' }).click()
+    await use(new PimPage(page))}
 });
 
 export { expect };
