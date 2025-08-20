@@ -1,6 +1,7 @@
 import { test as base, expect } from "@playwright/test";
 import { HrmLoginPage } from "../pages/loginPageHRM";
 import { PimPage } from "../pages/pimPageHRM";
+import { HrmDashboardPage } from "../pages/dashboardPageHRM";
 
 export const test = base.extend({
   hrmLoginPage: async({page},use)=>{
@@ -19,9 +20,13 @@ export const test = base.extend({
   },
   pimLaunch:async({hrmLoginSetUp,page},use)=>{
     await page.getByRole('link', { name: 'PIM' }).click()
-    await use(new PimPage(page))
+    await use(new PimPage(page))},
+    
+  HrmDashboardPage: async({page},use)=>{
+    await use(new HrmDashboardPage(page));
   }
 });
 
 export { expect };
+
 
