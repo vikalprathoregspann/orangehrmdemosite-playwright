@@ -1,5 +1,7 @@
 import { test as base, expect } from "@playwright/test";
 import { HrmLoginPage } from "../pages/loginPageHRM";
+import { recruitmentPage } from "../pages/recruitmentPageHRM";
+import { buzzPage } from "../pages/buzzPageHRM";
 import { PimPage } from "../pages/pimPageHRM";
 import { HrmDashboardPage } from "../pages/dashboardPageHRM";
 
@@ -17,6 +19,20 @@ export const test = base.extend({
   hrmLaunchSetUp: async({hrmLoginPage},use)=>{
     await hrmLoginPage.launchTheApp()
     await use()
+  },
+  recruitmentpage: async({page},use)=>{
+    await use(new recruitmentPage(page));
+  },
+  buzzpageSetup: async({page},use)=>{
+    await use(new buzzPage(page))
+  },
+  hrmBuzzLoginSetUp: async({hrmLoginSetUp,buzzpageSetup},use)=>{
+    await buzzpageSetup.clickOnBuzzBtn()
+    await use();
+  },
+  hrmRecruitmentLoginSetUp: async({hrmLoginSetUp,recruitmentpage},use)=>{
+    await recruitmentpage.clickOnRecruitmentBtn()
+    await use();
   },
   HrmDashboardPage: async({page},use)=>{
     await use(new HrmDashboardPage(page));
