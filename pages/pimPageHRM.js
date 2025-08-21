@@ -185,13 +185,3 @@ export class PimPage{
     
 }
 
-//  await page.getByRole('menuitem', { name: 'Optional Fields' }).click();
-//   await page.locator('form div').filter({ hasText: 'Show Deprecated FieldsShow' }).locator('span').click();
-//   await page.locator('form div').filter({ hasText: 'Show Deprecated FieldsShow' }).locator('span').click();
-//   await page.getByRole('link', { name: 'Employee List' }).click();
-//   await page.getByRole('row', { name: ' 0385 alex martin  ' }).click();
-//   await expect(page.locator('div').filter({ hasText: /^Employee Full NameNickname$/ }).getByRole('textbox').nth(3)).toBeVisible();
-  
-
-// await page.getByRole('link', { name: 'Reports' }).click();
-//   await expect(page.locator('.orangehrm-container')).toBeVisible();
