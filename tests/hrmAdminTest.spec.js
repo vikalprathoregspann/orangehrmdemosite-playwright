@@ -22,3 +22,45 @@ test("search using Invalid data @adminTest4",async({hrmAdminSearch, hrmAdminPage
     expect(await hrmAdminPage.isRecordAvailable()).toContain("No Records Found")
 })
 
+test("Edit data of added records @adminTest5",async({hrmLoginSetUp, hrmAdminPage})=>{
+    await hrmAdminPage.clickOnAdminBtn()
+    await hrmAdminPage.clickOnEditRecordBtn()
+    await hrmAdminPage.clickOnEditStatusField()
+    await hrmAdminPage.clickDisableOnEditStatus()
+    await hrmAdminPage.clickOnEditSaveBtn()
+    expect(await hrmAdminPage.isUserManagementTextVisible()).toBeFalsy();
+})
+
+test("Delete data from records @adminTest6",async({hrmLoginSetUp, hrmAdminPage, page})=>{
+    await hrmAdminPage.clickOnAdminBtn()
+    await page.waitForTimeout(4000)
+    await hrmAdminPage.clickOnDeleteRecordBtn()
+    await hrmAdminPage.clickOnConfirmDeleteBtn()
+})
+
+test("Checking footer orangeHRM, Inc. link @adminTest7", async ({ hrmLoginSetUp, hrmAdminPage, page}) => {
+    await hrmAdminPage.clickOnAdminBtn()
+    await hrmAdminPage.clickOnFooterLink()
+    await page.waitForTimeout(3000)
+    await expect(hrmAdminPage.isStreamlineHeadingVisible()).toBeTruthy()
+})
+
+test("Checking funtionality of job dropdown @adminTest8",async({hrmLoginSetUp, hrmAdminPage})=>{
+    await hrmAdminPage.clickOnAdminBtn()
+    await hrmAdminPage.clickOnJobDd()
+    await hrmAdminPage.clickOnJobTitleOption()
+    await expect(hrmAdminPage.jobTitleHeadingLoc).toBeVisible();
+})
+
+test("Checking functionality of nationalities button @adminTest9",async({hrmLoginSetUp, hrmAdminPage})=>{
+    await hrmAdminPage.clickOnAdminBtn()
+    await hrmAdminPage.clickOnNationalitiesBtn()
+    await expect(hrmAdminPage.nationalitiesHeadingLoc).toBeVisible();
+})
+
+test("Checking funtionality of organization dropdown @adminTest10",async({hrmLoginSetUp, hrmAdminPage})=>{
+    await hrmAdminPage.clickOnAdminBtn()
+    await hrmAdminPage.clickOnOrganizationDd()
+    await hrmAdminPage.clickOnGeneralInfoOption()
+    await expect(hrmAdminPage.generalInfoHeadingLoc).toBeVisible();
+})

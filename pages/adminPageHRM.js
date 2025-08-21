@@ -7,7 +7,9 @@ export class HrmAdminPage{
         this.pimUserLastNameLoc=page.getByRole('textbox', { name: 'Last Name' })
         this.pimEmployeeIdLoc=page.getByRole('textbox').nth(4)
         this.pimSaveBtnLoc=page.getByRole('button', { name: 'Save' })
+
         this.adminBtnLoc=page.getByRole('link', { name: 'Admin' })
+
         this.addBtnLoc=page.getByRole('button', { name: ' Add' })
         this.userRoleFieldLoc=page.getByText('-- Select --').first()
         this.adminRoleLoc=page.getByRole('option', { name: 'Admin' })
@@ -20,8 +22,8 @@ export class HrmAdminPage{
         this.confirmPasswordLoc=page.getByRole('textbox').nth(4)
         this.saveBtnLoc=page.getByRole('button', { name: 'Save' })
         this.cancelBtnLoc=page.getByRole('button', { name: 'Cancel' })
-        this.newRecordLoc=page.getByText('Vikalp KrGspann')
         this.userManagementTextLoc=page.getByRole('heading', { name: '/ User Management' })
+
         this.searchUserNameFieldLoc=page.getByRole('textbox').nth(1)
         this.searchUserRoleFieldLoc=page.locator('form i').first()
         this.searchAdminRoleLoc=page.getByRole('option', { name: 'Admin' })
@@ -32,6 +34,28 @@ export class HrmAdminPage{
         this.searchDisabledStatusLoc=page.getByRole('option', { name: 'Disabled' })
         this.searchBtnLoc=page.getByRole('button', { name: 'Search' })
         this.validRecordFoundLoc=page.locator('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/span')
+
+        this.editRecordBtnLoc=page.getByRole('row', { name: ' Vikalp KrGspann Admin Suraj' }).getByRole('button').nth(1)
+        this.editStatusFieldLoc=page.locator('form i').nth(1)
+        this.selectDisableInEditLoc=page.getByRole('option', { name: 'Disabled' })
+        this.editSaveBtnLoc=page.getByRole('button', { name: 'Save' })
+
+        this.deleteRecordBtnLoc=page.getByRole('row', { name: ' Vikalp KrGspann Admin Suraj' }).getByRole('button').first()
+        this.deleteConfirmBtnLoc=page.getByRole('button', { name: ' Yes, Delete' })
+
+        this.footerLinkLoc=page.locator("//a[text()='OrangeHRM, Inc']")
+        this.streamlineHeadingLoc=page.locator("//div[@class='page-title']//h1")
+
+        this.jobDropDownLoc=page.getByRole('listitem').filter({ hasText: 'Job' }).locator('i')
+        this.selectJobTitleLoc=page.getByRole('menuitem', { name: 'Job Titles' })
+        this.jobTitleHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
+
+        this.nationalitiesBtnLoc=page.getByRole('listitem').filter({ hasText: 'Nationalities' })
+        this.nationalitiesHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
+
+        this.organizationDropDownLoc=page.getByRole('listitem').filter({ hasText: 'Organization' }).locator('i')
+        this.selectgeneralInfoLoc=page.getByRole('menuitem', { name: 'General Information' })
+        this.generalInfoHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
     }
 
     async clickOnPimAdmBtn(){
@@ -56,7 +80,7 @@ export class HrmAdminPage{
     async clickOnAdminBtn(){
         await this.adminBtnLoc.click()
     }
-    
+
     async clickOnAddBtn(){
         await this.addBtnLoc.click()
     }
@@ -82,15 +106,9 @@ export class HrmAdminPage{
     async enterConfirmPassword(cPassword){
         await this.confirmPasswordLoc.fill(cPassword)
     }
-    
     async clickOnSaveBtn(){
         await this.saveBtnLoc.click()
     }
-    
-    async getNewRecordLocator() {
-        return await this.newRecordLoc.toBeTruthy();
-    }
-
     async clickOnCancelBtn(){
         await this.cancelBtnLoc.click()
     }
@@ -121,9 +139,53 @@ export class HrmAdminPage{
         await this.searchStatusFieldLoc.click()
         await this.searchDisabledStatusLoc.click()
     }
-
     async isRecordAvailable(){
         const data =  await this.validRecordFoundLoc.innerText()
         return data;
+    }
+
+    async clickOnEditRecordBtn(){
+        await this.editRecordBtnLoc.click()
+    }
+    async clickOnEditStatusField(){
+        await this.editStatusFieldLoc.click()
+    }
+    async clickDisableOnEditStatus(){
+        await this.selectDisableInEditLoc.click()
+    }
+    async clickOnEditSaveBtn(){
+        await this.editSaveBtnLoc.click()
+    }
+
+    async clickOnDeleteRecordBtn(){
+        await this.deleteRecordBtnLoc.click()
+    }
+    async clickOnConfirmDeleteBtn(){
+        await this.deleteConfirmBtnLoc.click()
+    }
+
+    async clickOnFooterLink(){
+        await this.footerLinkLoc.click()
+    }
+    async isStreamlineHeadingVisible(){
+        return await this.streamlineHeadingLoc.isVisible()
+    }
+
+    async clickOnJobDd(){
+        await this.jobDropDownLoc.click()
+    }
+    async clickOnJobTitleOption(){
+        await this.selectJobTitleLoc.click()
+    }
+
+    async clickOnNationalitiesBtn(){
+        await this.nationalitiesBtnLoc.click()
+    }
+
+    async clickOnOrganizationDd(){
+        await this.organizationDropDownLoc.click()
+    }
+    async clickOnGeneralInfoOption(){
+        await this.selectgeneralInfoLoc.click()
     }
 }
