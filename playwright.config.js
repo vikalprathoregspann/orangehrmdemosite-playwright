@@ -34,7 +34,7 @@ export default defineConfig({
     // actionTimeout: 10000,
     channel:'chrome',
     launchOptions:{
-      slowMo: 1000
+      slowMo: 2000
     }
   },
 
