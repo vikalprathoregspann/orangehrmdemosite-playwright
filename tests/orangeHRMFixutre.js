@@ -1,6 +1,10 @@
 import { test as base, expect } from "@playwright/test";
 import { HrmLoginPage } from "../pages/loginPageHRM";
 import { HrmAdminPage } from "../pages/adminPageHRM";
+import { recruitmentPage } from "../pages/recruitmentPageHRM";
+import { buzzPage } from "../pages/buzzPageHRM";
+import { PimPage } from "../pages/pimPageHRM";
+import { HrmDashboardPage } from "../pages/dashboardPageHRM";
 
 export const test = base.extend({
   hrmLoginPage: async({page},use)=>{
@@ -43,8 +47,29 @@ export const test = base.extend({
     await hrmAdminPage.enterSearchUserRole()
     await hrmAdminPage.enterSearchEmployee("Suraj Raj")
     await use()
-  }
+  },
+  recruitmentpage: async({page},use)=>{
+    await use(new recruitmentPage(page));
+  },
+  buzzpageSetup: async({page},use)=>{
+    await use(new buzzPage(page))
+  },
+  hrmBuzzLoginSetUp: async({hrmLoginSetUp,buzzpageSetup},use)=>{
+    await buzzpageSetup.clickOnBuzzBtn()
+    await use();
+  },
+  hrmRecruitmentLoginSetUp: async({hrmLoginSetUp,recruitmentpage},use)=>{
+    await recruitmentpage.clickOnRecruitmentBtn()
+    await use();
+  },
+  HrmDashboardPage: async({page},use)=>{
+    await use(new HrmDashboardPage(page));
+  },
+  pimLaunch:async({hrmLoginSetUp,page},use)=>{
+    await page.getByRole('link', { name: 'PIM' }).click()
+    await use(new PimPage(page))}
 });
 
-export { expect };
+export { expect }
+
 
