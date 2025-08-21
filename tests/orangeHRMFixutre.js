@@ -26,6 +26,6 @@ export const test = base.extend({
     await use(new PimPage(page))}
 });
 
-export { expect };
+export { expect }
 
 
