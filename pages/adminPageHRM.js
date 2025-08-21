@@ -52,12 +52,11 @@ export class HrmAdminPage{
     async clickOnPimSaveBtn(){
         await this.pimSaveBtnLoc.click()
     }
-
+    
     async clickOnAdminBtn(){
         await this.adminBtnLoc.click()
     }
     
-    //method for add button in admin page
     async clickOnAddBtn(){
         await this.addBtnLoc.click()
     }
@@ -83,7 +82,7 @@ export class HrmAdminPage{
     async enterConfirmPassword(cPassword){
         await this.confirmPasswordLoc.fill(cPassword)
     }
-    //clicking save button after filling data
+    
     async clickOnSaveBtn(){
         await this.saveBtnLoc.click()
     }
@@ -92,7 +91,6 @@ export class HrmAdminPage{
         return await this.newRecordLoc.toBeTruthy();
     }
 
-    //clicking cancel button after filling data
     async clickOnCancelBtn(){
         await this.cancelBtnLoc.click()
     }
@@ -100,7 +98,6 @@ export class HrmAdminPage{
         return await this.userManagementTextLoc.isVisible();
     }
 
-    //method for search button in admin page
     async enterSearchUserName(searchUserName){
         await this.searchUserNameFieldLoc.fill(searchUserName)
     }
@@ -125,29 +122,8 @@ export class HrmAdminPage{
         await this.searchDisabledStatusLoc.click()
     }
 
-
     async isRecordAvailable(){
         const data =  await this.validRecordFoundLoc.innerText()
         return data;
     }
 }
-
-
-// test('test', async ({ page }) => {
-//   await page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-//   await page.getByRole('textbox', { name: 'Username' }).click();
-//   await page.getByRole('textbox', { name: 'Username' }).fill('Admin');
-//   await page.getByRole('textbox', { name: 'Password' }).click();
-//   await page.getByRole('textbox', { name: 'Password' }).fill('admin123');
-//   await page.getByRole('button', { name: 'Login' }).click();
-//   await page.getByRole('link', { name: 'PIM' }).click();
-//   await page.getByRole('button', { name: ' Add' }).click();
-//   await page.getByRole('textbox', { name: 'First Name' }).click();
-//   await page.getByRole('textbox', { name: 'First Name' }).fill('Prince');
-//   await page.getByRole('textbox', { name: 'Last Name' }).click();
-//   await page.getByRole('textbox', { name: 'Last Name' }).fill('Raj');
-//   await page.getByRole('textbox').nth(4).click();
-//   await page.getByRole('textbox').nth(4).fill('12453');
-//   await page.getByRole('button', { name: 'Save' }).click();
-//   await page.getByRole('link', { name: 'Admin' }).click();
-// });
