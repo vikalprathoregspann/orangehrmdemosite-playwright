@@ -6,6 +6,7 @@ import { buzzPage } from "../pages/buzzPageHRM";
 import { PimPage } from "../pages/pimPageHRM";
 import { HrmDashboardPage } from "../pages/dashboardPageHRM";
 import { HrmMyInfoPage } from "../pages/myInfoPageHRM";
+import { HrmClaimPage } from "../pages/claimPageHRM";
 
 export const test = base.extend({
   hrmLoginPage: async({page},use)=>{
@@ -73,6 +74,13 @@ export const test = base.extend({
   hrmMyInfoPage: async({page},use)=>{
     await use(new HrmMyInfoPage(page));
   },
+  HrmClaimPage: async({page},use)=>{
+    await use(new HrmClaimPage(page))
+  },
+  HrmClaimPageSetup: async({hrmLoginSetUp,HrmClaimPage}, use)=>{
+    await HrmClaimPage.clickOnOrangeBtnloc()
+    await use()
+  }
 });
 
 export { expect }
