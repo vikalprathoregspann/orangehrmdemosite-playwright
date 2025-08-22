@@ -5,6 +5,7 @@ import { recruitmentPage } from "../pages/recruitmentPageHRM";
 import { buzzPage } from "../pages/buzzPageHRM";
 import { PimPage } from "../pages/pimPageHRM";
 import { HrmDashboardPage } from "../pages/dashboardPageHRM";
+import { HrmMyInfoPage } from "../pages/myInfoPageHRM";
 
 export const test = base.extend({
   hrmLoginPage: async({page},use)=>{
@@ -67,9 +68,14 @@ export const test = base.extend({
   },
   pimLaunch:async({hrmLoginSetUp,page},use)=>{
     await page.getByRole('link', { name: 'PIM' }).click()
-    await use(new PimPage(page))}
+    await use(new PimPage(page))
+  },
+  hrmMyInfoPage: async({page},use)=>{
+    await use(new HrmMyInfoPage(page));
+  },
 });
 
 export { expect }
+
 
 
