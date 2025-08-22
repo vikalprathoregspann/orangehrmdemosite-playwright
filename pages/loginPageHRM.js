@@ -9,6 +9,7 @@ export class HrmLoginPage{
         this.resetPasswordFieldLoc=page.getByRole('textbox', { name: 'Username' })
         this.resetPasswordBtnLoc=page.getByRole('button', { name: 'Reset Password' })
         this.resetMsgLoc=page.locator(".orangehrm-forgot-password-title")
+        this.openPimpage=page.getByRole('link', { name: 'PIM' })
     }
 
     async launchTheApp(){
@@ -37,5 +38,9 @@ export class HrmLoginPage{
     }
     async clickOnResetBtn(){
         await this.resetPasswordBtnLoc.click()
+    }
+    async openPimPage()
+    {
+        await this.openPimpage.click()
     }
 }
