@@ -2,18 +2,23 @@ import { test, expect } from "./orangeHRMFixutre"
 
 test("Adding an user", async ({ pimLaunch }) => {
     await pimLaunch.addEmployee()
-    await pimLaunch.fillName("newuser2", "dontcare", "lastestname")
-    await pimLaunch.fillId("56785")
+    let lastDigits=Math.floor(100+Math.random()*900)
+    let firstname="newuser"+lastDigits
+    await pimLaunch.fillName(firstname.toString(), "dontcare", "lastestname")
+    let id=Math.floor(1000+Math.random()*90000).toString()
+    await pimLaunch.fillId(id)
     await pimLaunch.clickSaveEmployee()
     await pimLaunch.navigateToList()
-    await pimLaunch.enterSearchName("newuser2")
+    await pimLaunch.enterSearchName(firstname.toString())
     await pimLaunch.clickSearch()
     expect(await pimLaunch.recordYes).toBeVisible()
 
 })
 
 test("searching a invalid user", async ({ pimLaunch }) => {
-    await pimLaunch.enterSearchName("djcwufufuinvalidbdnsd")
+    let lastDigits=Math.floor(100+Math.random()*900)
+    let invalidName="invaliduser"+lastDigits
+    await pimLaunch.enterSearchName(invalidName.toString())
     await pimLaunch.clickSearch()
     expect(await pimLaunch.noRecord).toBeVisible()
 })
@@ -57,8 +62,9 @@ test("Optional setting activation", async ({ pimLaunch }) => {
     await pimLaunch.clickSave()
     await pimLaunch.navigateToList()
     await pimLaunch.nickNameClick()
-    setTimeout(()=>{
-    expect( pimLaunch.nicknameVisible).toBeVisible()},2000
+    setTimeout(() => {
+        expect(pimLaunch.nicknameVisible).toBeVisible()
+    }, 2000
     )
 })
 
