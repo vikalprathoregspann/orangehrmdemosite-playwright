@@ -9,24 +9,24 @@ import { HrmMyInfoPage } from "../pages/myInfoPageHRM";
 import { HrmClaimPage } from "../pages/claimPageHRM";
 
 export const test = base.extend({
-  hrmLoginPage: async({page},use)=>{
+  hrmLoginPage: async ({ page }, use) => {
     await use(new HrmLoginPage(page));
   },
-  hrmLoginSetUp: async({hrmLoginPage},use)=>{
+  hrmLoginSetUp: async ({ hrmLoginPage }, use) => {
     await hrmLoginPage.launchTheApp()
     await hrmLoginPage.enterValidUserName("Admin")
     await hrmLoginPage.enterValidPassword("admin123")
     await hrmLoginPage.clickOnLoginBtn()
     await use()
   },
-  hrmLaunchSetUp: async({hrmLoginPage},use)=>{
+  hrmLaunchSetUp: async ({ hrmLoginPage }, use) => {
     await hrmLoginPage.launchTheApp()
     await use()
   },
-  hrmAdminPage: async({page},use)=>{
+  hrmAdminPage: async ({ page }, use) => {
     await use(new HrmAdminPage(page));
   },
-  hrmAdminSetUp: async({hrmLoginSetUp ,hrmAdminPage},use)=>{
+  hrmAdminSetUp: async ({ hrmLoginSetUp, hrmAdminPage }, use) => {
     await hrmAdminPage.clickOnPimAdmBtn()
     await hrmAdminPage.clickOnPimAddBtn()
     await hrmAdminPage.enterPimUserFirstName("Suraj")
@@ -43,41 +43,41 @@ export const test = base.extend({
     await hrmAdminPage.enterConfirmPassword("prince@12345")
     await use()
   },
-  hrmAdminSearch: async({hrmLoginSetUp, hrmAdminPage},use)=>{
+  hrmAdminSearch: async ({ hrmLoginSetUp, hrmAdminPage }, use) => {
     await hrmAdminPage.clickOnAdminBtn()
     await hrmAdminPage.enterSearchUserName("Vikalp KrGspann")
     await hrmAdminPage.enterSearchUserRole()
     await hrmAdminPage.enterSearchEmployee("Suraj Raj")
     await use()
   },
-  recruitmentpage: async({page},use)=>{
+  recruitmentpage: async ({ page }, use) => {
     await use(new recruitmentPage(page));
   },
-  buzzpageSetup: async({page},use)=>{
+  buzzpageSetup: async ({ page }, use) => {
     await use(new buzzPage(page))
   },
-  hrmBuzzLoginSetUp: async({hrmLoginSetUp,buzzpageSetup},use)=>{
+  hrmBuzzLoginSetUp: async ({ hrmLoginSetUp, buzzpageSetup }, use) => {
     await buzzpageSetup.clickOnBuzzBtn()
     await use();
   },
-  hrmRecruitmentLoginSetUp: async({hrmLoginSetUp,recruitmentpage},use)=>{
+  hrmRecruitmentLoginSetUp: async ({ hrmLoginSetUp, recruitmentpage }, use) => {
     await recruitmentpage.clickOnRecruitmentBtn()
     await use();
   },
-  HrmDashboardPage: async({page},use)=>{
+  HrmDashboardPage: async ({ page }, use) => {
     await use(new HrmDashboardPage(page));
   },
   pimLaunch:async({hrmLoginSetUp,page,hrmLoginPage},use)=>{
     await hrmLoginPage.openPimPage()
     await use(new PimPage(page))
   },
-  hrmMyInfoPage: async({page},use)=>{
+  hrmMyInfoPage: async ({ page }, use) => {
     await use(new HrmMyInfoPage(page));
   },
-  HrmClaimPage: async({page},use)=>{
+  HrmClaimPage: async ({ page }, use) => {
     await use(new HrmClaimPage(page))
   },
-  HrmClaimPageSetup: async({hrmLoginSetUp,HrmClaimPage}, use)=>{
+  HrmClaimPageSetup: async ({ hrmLoginSetUp, HrmClaimPage }, use) => {
     await HrmClaimPage.clickOnOrangeBtnloc()
     await use()
   }

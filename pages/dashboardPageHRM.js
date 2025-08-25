@@ -1,9 +1,8 @@
 export class HrmDashboardPage {
 
-    constructor(page){
+    constructor(page) {
 
-
-        this.page =page;
+        this.page = page;
         this.dashboardLink = page.getByRole('link', { name: 'Dashboard' });
         this.assignLeaveButton = page.getByRole('button', { name: 'Assign Leave' });
         this.leaveListButton = page.getByRole('button', { name: 'Leave List' });
@@ -18,8 +17,8 @@ export class HrmDashboardPage {
         this.navigatedToLeaveListPage = page.getByRole('listitem').filter({ hasText: 'Leave List' });
         this.navigatedToTimeSheetsPage = page.getByText('Attendance');
         this.navigatedToApplyLeavePage = page.getByRole('heading', { name: 'Apply Leave' });
-        this.navigatedToMyLeavePage =page.getByRole('heading', { name: 'My Leave List' });
-        this.navigatedToMyTimeSheetPage =page.getByRole('heading', { name: 'My Timesheet' });
+        this.navigatedToMyLeavePage = page.getByRole('heading', { name: 'My Leave List' });
+        this.navigatedToMyTimeSheetPage = page.getByRole('heading', { name: 'My Timesheet' });
 
     }
 
@@ -27,13 +26,10 @@ export class HrmDashboardPage {
         await this.dashboardLink.click();
     }
 
-    async clickOnDashboardButton(){
+    async clickOnDashboardButton() {
         await this.dashboardLink.click();
-
-
     }
 
-   
     async verifyAssignLeaveButtonClickable() {
         await this.assignLeaveButton.click()
     }
@@ -58,7 +54,7 @@ export class HrmDashboardPage {
     async verifyEmployeeDistributionBySubUnitCanvas() {
         await this.employeeDistributionBySubUnitCanvas
     }
-    
+
 
 
 
