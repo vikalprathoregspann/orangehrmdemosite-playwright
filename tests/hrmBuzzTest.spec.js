@@ -1,10 +1,12 @@
 import { test, expect } from "./orangeHRMFixutre.js";
 import { buzzPage } from "../pages/buzzPageHRM.js";
+import {generateRandomText} from '../utils/dataGenarator.js'
 
 test('To test the posttxt', async ({ buzzpageSetup,hrmBuzzLoginSetUp,page }) => {
-    await buzzpageSetup.enterTxtBuzz("HelloWorld")//need new txt each time
+    const randomText = generateRandomText("HelloWorld")//will get new text 
+    await buzzpageSetup.enterTxtBuzz(randomText)//use random text
     await buzzpageSetup.clickOnPostBtn()
-    await expect(page.getByText('HelloWorld')).toBeVisible();//need new txt each time
+    await expect(page.getByText(randomText)).toBeVisible();//need new txt each time
 })
 
 test('To test the likeBtn tolike', async ({ buzzpageSetup,hrmBuzzLoginSetUp,page }) => {
@@ -26,10 +28,10 @@ await expect(page.locator('.orangehrm-buzz-post-body-picture').first()).toBeVisi
 });
 
 test('To test the comment', async ({ buzzpageSetup,hrmBuzzLoginSetUp,page }) => {
+     const commentText = generateRandomText("Comment");
     await buzzpageSetup.clickOncommentBtn()
-    await buzzpageSetup.entertextcomment("done")//need new txt each time
+    await buzzpageSetup.entertextcomment(commentText)
     await buzzpageSetup.clickOnEnterBtn()
-    //await buzzpageSetup.clickOncommentBtn()          // need to update this in pages also
- await expect(page.getByText('done')).toBeVisible();//need new txt each time
+  await expect(page.getByText(commentText)).toBeVisible();
 }); 
 

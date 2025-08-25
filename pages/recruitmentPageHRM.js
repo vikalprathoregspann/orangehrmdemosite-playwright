@@ -9,7 +9,7 @@ export class recruitmentPage {
         this.saveBtnLoc = page.locator("//*[@class='oxd-form-actions']/button[2]")
         this.cancelBtnLoc=page.locator("//*[@class='oxd-form-actions']/button[1]")
         this.vscanciesBtnLoc= page.getByRole('link', { name: 'Vacancies' })
-
+     
     }
     async clickOnRecruitmentBtn() {
         await this.recruitmentBtnLoc.click()

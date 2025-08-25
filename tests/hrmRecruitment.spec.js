@@ -28,4 +28,3 @@ test('To test vacanciesBtn', async ({ recruitmentpage,hrmRecruitmentLoginSetUp,p
   await expect(page.getByRole('heading', { name: 'Vacancies' })).toBeVisible();
 })
 
-
