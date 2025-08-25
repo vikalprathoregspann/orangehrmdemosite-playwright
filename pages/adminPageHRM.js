@@ -7,9 +7,7 @@ export class HrmAdminPage{
         this.pimUserLastNameLoc=page.getByRole('textbox', { name: 'Last Name' })
         this.pimEmployeeIdLoc=page.getByRole('textbox').nth(4)
         this.pimSaveBtnLoc=page.getByRole('button', { name: 'Save' })
-
         this.adminBtnLoc=page.getByRole('link', { name: 'Admin' })
-
         this.addBtnLoc=page.getByRole('button', { name: ' Add' })
         this.userRoleFieldLoc=page.getByText('-- Select --').first()
         this.adminRoleLoc=page.getByRole('option', { name: 'Admin' })
@@ -22,8 +20,8 @@ export class HrmAdminPage{
         this.confirmPasswordLoc=page.getByRole('textbox').nth(4)
         this.saveBtnLoc=page.getByRole('button', { name: 'Save' })
         this.cancelBtnLoc=page.getByRole('button', { name: 'Cancel' })
+        this.addedUserRows = page.locator(".oxd-table-body").getByText("Vikalp KrGspann");
         this.userManagementTextLoc=page.getByRole('heading', { name: '/ User Management' })
-
         this.searchUserNameFieldLoc=page.getByRole('textbox').nth(1)
         this.searchUserRoleFieldLoc=page.locator('form i').first()
         this.searchAdminRoleLoc=page.getByRole('option', { name: 'Admin' })
@@ -34,25 +32,21 @@ export class HrmAdminPage{
         this.searchDisabledStatusLoc=page.getByRole('option', { name: 'Disabled' })
         this.searchBtnLoc=page.getByRole('button', { name: 'Search' })
         this.validRecordFoundLoc=page.locator('//*[@id="app"]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/span')
-
         this.editRecordBtnLoc=page.getByRole('row', { name: ' Vikalp KrGspann Admin Suraj' }).getByRole('button').nth(1)
         this.editStatusFieldLoc=page.locator('form i').nth(1)
         this.selectDisableInEditLoc=page.getByRole('option', { name: 'Disabled' })
         this.editSaveBtnLoc=page.getByRole('button', { name: 'Save' })
-
+        this.editedRecordLoc=page.locator("//div[text()='Vikalp KrGspann']//following::div[5]//descendant::div")
         this.deleteRecordBtnLoc=page.getByRole('row', { name: ' Vikalp KrGspann Admin Suraj' }).getByRole('button').first()
         this.deleteConfirmBtnLoc=page.getByRole('button', { name: ' Yes, Delete' })
-
+        this.deletedUserRows = page.locator(".oxd-table-body").getByText("Vikalp KrGspann");
         this.footerLinkLoc=page.locator("//a[text()='OrangeHRM, Inc']")
         this.streamlineHeadingLoc=page.locator("//div[@class='page-title']//h1")
-
         this.jobDropDownLoc=page.getByRole('listitem').filter({ hasText: 'Job' }).locator('i')
         this.selectJobTitleLoc=page.getByRole('menuitem', { name: 'Job Titles' })
         this.jobTitleHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
-
         this.nationalitiesBtnLoc=page.getByRole('listitem').filter({ hasText: 'Nationalities' })
         this.nationalitiesHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
-
         this.organizationDropDownLoc=page.getByRole('listitem').filter({ hasText: 'Organization' }).locator('i')
         this.selectgeneralInfoLoc=page.getByRole('menuitem', { name: 'General Information' })
         this.generalInfoHeadingLoc=page.locator("//div[@class='orangehrm-header-container']//h6")
