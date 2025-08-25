@@ -1,3 +1,4 @@
+//Author : Kanishka
 export class recruitmentPage {
     constructor(page) {
         this.page = page

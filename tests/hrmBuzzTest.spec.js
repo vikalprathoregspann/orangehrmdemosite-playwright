@@ -1,3 +1,4 @@
+//Author : Kanishka
 import { test, expect } from "./orangeHRMFixutre.js";
 import { buzzPage } from "../pages/buzzPageHRM.js";
 import {generateRandomText} from '../utils/dataGenarator.js'

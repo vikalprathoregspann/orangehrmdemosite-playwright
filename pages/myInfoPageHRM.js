@@ -1,3 +1,4 @@
+//Author : Labeek
 export class HrmMyInfoPage{
     constructor(page){
         this.page=page

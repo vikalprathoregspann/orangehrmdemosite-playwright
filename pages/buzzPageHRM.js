@@ -1,3 +1,5 @@
+//Author : Kanishka
+
 export class buzzPage {
     constructor(page) {
         this.page = page
