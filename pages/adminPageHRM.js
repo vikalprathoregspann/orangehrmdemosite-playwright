@@ -1,3 +1,4 @@
+//Author : Prince
 export class HrmAdminPage{
     constructor(page){
         this.page=page

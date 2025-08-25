@@ -1,3 +1,4 @@
+//Author : Labeek
 import { expect, test } from "./orangeHRMFixutre";
  
 test("Fill Personal Details @myInfoTest1", async ({ hrmLoginSetUp, hrmMyInfoPage, page }) => {
