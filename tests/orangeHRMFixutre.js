@@ -67,8 +67,8 @@ export const test = base.extend({
   HrmDashboardPage: async({page},use)=>{
     await use(new HrmDashboardPage(page));
   },
-  pimLaunch:async({hrmLoginSetUp,page},use)=>{
-    await page.getByRole('link', { name: 'PIM' }).click()
+  pimLaunch:async({hrmLoginSetUp,page,hrmLoginPage},use)=>{
+    await hrmLoginPage.openPimPage()
     await use(new PimPage(page))
   },
   hrmMyInfoPage: async({page},use)=>{
