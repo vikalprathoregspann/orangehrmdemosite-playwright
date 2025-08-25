@@ -16,9 +16,6 @@ export class buzzPage {
         this.clickAddPhotosBtnLoc =page.locator('div').filter({ hasText: /^Add Photos$/ }).nth(3)
         this.chooseFilesLoc =page.getByRole('button', { name: 'Choose File' })
         this.clickSharePhotoToBuzzLoc =page.getByRole('button', { name: 'Share', exact: true })
-        this.recentCommentLoc =page.getByText('done')//need new txt each time
-
-         //await expect(page.getByText('its you')).toBeVisible();
     }
      async clickOnBuzzBtn(){
         await this.buzzBtnLoc.click()
@@ -43,16 +40,7 @@ export class buzzPage {
     }
      async clickOnEnterBtn(){
         await this.clickEnterbtnLoc.press('Enter')
-     }
-  async isCommentVisible() {
-    try {
-        await this.recentCommentLoc.waitFor({ state: 'attached', timeout: 5000 });
-        return await this.recentCommentLoc.isVisible();
-    } catch (e) {
-        return false;
-    }
-}
-     
+     }    
      async clickOnCommentsBtn(){
         await this.clickEnterbtnLoc.click()
      }
@@ -68,5 +56,6 @@ export class buzzPage {
      async clickOnFinalUploadBtn(){
         await this.clickSharePhotoToBuzzLoc.click()
      }
+     
      
 }
